@@ -18,244 +18,204 @@
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis:400,600,700|Poppins:400,600,700&display=swap"
-    rel="stylesheet" />
+        rel="stylesheet" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
+  <link href="css/style.scss" rel="stylesheet" />
+
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.jsp">
-            <img src="images/logo.png" alt="" />
-            <span>
-              Bảo hiểm
-            </span>
-          </a>
-          <div class="contact_nav" id="">
-            <ul class="navbar-nav ">
-              <li class="nav-item">
-                <a class="nav-link" href="service.html">
-                  <img src="images/location.png" alt="" />
-                  <span>Vị trí</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="service.html">
-                  <img src="images/call.png" alt="" />
-                  <span>+ 01 1234567890</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="service.html">
-                  <img src="images/envelope.png" alt="" />
-                  <span>demo@gmail.com</span>
-                </a>
-              </li>
-            </ul>
+<div class="hero_area">
+  <!-- header section strats -->
+  <header class="header_section">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="index.jsp">
+          <img style="border-radius: 50%" src="images/bhxh.png" alt="" />
+          <div style="margin-left: 30px">
+            <div>Giao dịch điện tử</div>
+            <div>Bảo hiểm xã hội</div>
+          </div>
+        </a>
+        <div class="contact_nav" id="">
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                <img src="images/location.png" alt="" />
+                <span>Vị trí</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">
+                <img src="images/call.png" alt="" />
+                <span>+ 01 1234567890</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">
+                <img src="images/envelope.png" alt="" />
+                <span>demo@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+  </header>
+  <!-- end header section -->
+  <!-- slider section -->
+  <section class=" slider_section position-relative">
+    <div class="container">
+      <div class="custom_nav2">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex  flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+
+
+
+                <c:choose>
+                  <c:when test="${not empty sessionScope.user}">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">${sessionScope.user.fullname}</a>
+                    </li>
+                  </c:when>
+                </c:choose>
+
+
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <c:choose>
+                  <c:when test="${empty sessionScope.user}">
+                    <li class="nav-item">
+                      <a class="nav-link" href="login.jsp">Login</a>
+                    </li>
+                  </c:when>
+                </c:choose>
+
+
+                <c:choose>
+                  <c:when test="${not empty sessionScope.user and sessionScope.user.role == 0}">
+                    <li class="nav-item">
+                      <a class="nav-link" href="insurance">Tính bảo hiểm và đóng tiền</a>
+                    </li>
+                  </c:when>
+                </c:choose>
+
+                <c:choose>
+                  <c:when test="${not empty sessionScope.user and sessionScope.user.role == 0}">
+                    <li class="nav-item">
+                      <a class="nav-link" href="register.jsp">Khai báo thông tin</a>
+                    </li>
+                  </c:when>
+                </c:choose>
+
+
+
+                <%--                  <li class="nav-item">--%>
+                <%--                    <a class="nav-link" href="service.html">Services </a>--%>
+                <%--                  </li>--%>
+
+                <%--                  <c:choose>--%>
+                <%--                    <c:when test="${not empty sessionScope.user}">--%>
+                <%--                      <li class="nav-item">--%>
+                <%--                        <a class="nav-link" href="#">${sessionScope.user.fullname}</a>--%>
+                <%--                      </li>--%>
+                <%--                    </c:when>--%>
+                <%--                    <c:otherwise>--%>
+                <%--                      <li class="nav-item">--%>
+                <%--                        <a class="nav-link" href="login.jsp">Login</a>--%>
+                <%--                      </li>--%>
+                <%--                    </c:otherwise>--%>
+                <%--                  </c:choose>--%>
+
+                <%--                    <li class="nav-item">--%>
+                <%--                    <a class="nav-link" href="login.html">Login</a>--%>
+                <%--                  </li>--%>
+                <c:choose>
+                  <c:when test="${not empty sessionScope.user and sessionScope.user.role == 1}">
+                    <li class="nav-item">
+                      <a class="nav-link" href="register.jsp">Đăng kí người dùng</a>
+                    </li>
+                  </c:when>
+                </c:choose>
+                <%--                  <li class="nav-item">--%>
+                <%--                    <a class="nav-link" href="#">Contract</a>--%>
+                <%--                  </li>--%>
+
+
+              </ul>
+              <%--                <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">--%>
+              <%--                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>--%>
+              <%--                </form>--%>
+            </div>
           </div>
         </nav>
       </div>
-
-    </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class=" slider_section position-relative">
-      <div class="container">
-        <div class="custom_nav2">
-          <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <div class="d-flex  flex-column flex-lg-row align-items-center">
-                <ul class="navbar-nav  ">
-
-
-
-                  <c:choose>
-                    <c:when test="${not empty sessionScope.user}">
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">${sessionScope.user.fullname}</a>
-                      </li>
-                    </c:when>
-                  </c:choose>
-
-
-
-                  <li class="nav-item active">
-                    <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
-                  </li>
-
-                  <c:choose>
-                    <c:when test="${empty sessionScope.user}">
-                      <li class="nav-item">
-                        <a class="nav-link" href="login.jsp">Login</a>
-                      </li>
-                    </c:when>
-                  </c:choose>
-
-
-                  <c:choose>
-                    <c:when test="${not empty sessionScope.user and sessionScope.user.role == 0}">
-                      <li class="nav-item">
-                        <a class="nav-link" href="insurance">Tính bảo hiểm và đóng tiền</a>
-                      </li>
-                    </c:when>
-                  </c:choose>
-
-                  <c:choose>
-                    <c:when test="${not empty sessionScope.user and sessionScope.user.role == 0}">
-                      <li class="nav-item">
-                        <a class="nav-link" href="register.jsp">Khai báo thông tin</a>
-                      </li>
-                    </c:when>
-                  </c:choose>
-
-
-
-<%--                  <li class="nav-item">--%>
-<%--                    <a class="nav-link" href="service.html">Services </a>--%>
-<%--                  </li>--%>
-
-<%--                  <c:choose>--%>
-<%--                    <c:when test="${not empty sessionScope.user}">--%>
-<%--                      <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="#">${sessionScope.user.fullname}</a>--%>
-<%--                      </li>--%>
-<%--                    </c:when>--%>
-<%--                    <c:otherwise>--%>
-<%--                      <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="login.jsp">Login</a>--%>
-<%--                      </li>--%>
-<%--                    </c:otherwise>--%>
-<%--                  </c:choose>--%>
-
-<%--                    <li class="nav-item">--%>
-<%--                    <a class="nav-link" href="login.html">Login</a>--%>
-<%--                  </li>--%>
-                  <c:choose>
-                    <c:when test="${not empty sessionScope.user and sessionScope.user.role == 1}">
-                      <li class="nav-item">
-                        <a class="nav-link" href="register.jsp">Đăng kí người dùng</a>
-                      </li>
-                    </c:when>
-                  </c:choose>
-<%--                  <li class="nav-item">--%>
-<%--                    <a class="nav-link" href="#">Contract</a>--%>
-<%--                  </li>--%>
-
-
-                </ul>
-<%--                <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">--%>
-<%--                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>--%>
-<%--                </form>--%>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-      <div class="slider_container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-6 col-md-7 offset-md-6 offset-md-5">
-                    <div class="detail-box">
-                      <h2>
-                        Chính sách an sinh xã hội
-                      </h2>
-                      <h1>
-                        Bảo hiểm xã hội
-                      </h1>
-                      <p>
-                        Phương thức bảo vệ trước những tổn thất tài chính. Đó là hình thức quản lý rủi ro, chủ yếu được sử dụng để bảo hiểm cho những rủi ro ngẫu nhiên hoặc tổn thất có thể xảy ra"
-                      </p>
-                      <div class="btn-box">
-                        <a href="" class="btn-1">
-                          Read More
-                        </a>
-                        <a href="" class="btn-2">
-                          Get A Quote
-                        </a>
-                      </div>
-                    </div>
+    </div>
+    <div class="slider_container">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 col-md-7 offset-md-6 offset-md-5">
+                  <div class="detail-box">
+                    <h2>
+                      Chính sách an sinh xã hội
+                    </h2>
+                    <h1>
+                      Bảo hiểm xã hội
+                    </h1>
+                    <p>
+                      Phương thức bảo vệ trước những tổn thất tài chính. Đó là hình thức quản lý rủi ro, chủ yếu được sử dụng để bảo hiểm cho những rủi ro ngẫu nhiên hoặc tổn thất có thể xảy ra"
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="carousel-item ">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-6 col-md-7 offset-md-6 offset-md-5">
-                    <div class="detail-box">
-                      <h2>
-                        Chính sách an sinh xã hội
-                      </h2>
-                      <h1>
-                        Quyền lợi khi tham gia bảo hiểm xã hội
-                      </h1>
-                      <p>
-                        Người tham gia BHXH sẽ được hưởng các quyền lợi về tiền trợ cấp nhằm bảo đảm thay thế, bù đắp sự thiếu hụt về mặt tài chính cho người tham và gia đình của họ khi gặp phải những rủi ro trong cuộc sống.
-                        Trong trường hợp người tham gia không muốn tiếp tục tham gia BHXH thì có thể rút BHXH 1 lần khi có yêu cầu.
-                        Mức hưởng sẽ căn cứ theo mức tiền lương đóng vào Quỹ hàng tháng và thời gian tham gia theo quy định.
-                      </p>
-                      <div class="btn-box">
-                        <a href="" class="btn-1">
-                          Read More
-                        </a>
-                        <a href="" class="btn-2">
-                          Get A Quote
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item ">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-6 col-md-7 offset-md-6 offset-md-5">
-                    <div class="detail-box">
-                      <h2>
-                        Get Your Body
-                      </h2>
-                      <h1>
-                        Fitness Here
-                      </h1>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam
-                      </p>
-                      <div class="btn-box">
-                        <a href="" class="btn-1">
-                          Read More
-                        </a>
-                        <a href="" class="btn-2">
-                          Get A Quote
-                        </a>
-                      </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 col-md-7 offset-md-6 offset-md-5">
+                  <div class="detail-box">
+                    <h2>
+                      Chính sách an sinh xã hội
+                    </h2>
+                    <h1>
+                      Quyền lợi khi tham gia bảo hiểm xã hội
+                    </h1>
+                    <p>
+                      Người tham gia BHXH sẽ được hưởng các quyền lợi về tiền trợ cấp nhằm bảo đảm thay thế, bù đắp sự thiếu hụt về mặt tài chính cho người tham và gia đình của họ khi gặp phải những rủi ro trong cuộc sống.
+                      Trong trường hợp người tham gia không muốn tiếp tục tham gia BHXH thì có thể rút BHXH 1 lần khi có yêu cầu.
+                      Mức hưởng sẽ căn cứ theo mức tiền lương đóng vào Quỹ hàng tháng và thời gian tham gia theo quy định.
+                    </p>
+                    <div class="btn-box">
                     </div>
                   </div>
                 </div>
@@ -264,9 +224,10 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- end slider section -->
-  </div>
+    </div>
+  </section>
+  <!-- end slider section -->
+</div>
 
 
 <%--  <!-- about section -->--%>
@@ -751,31 +712,31 @@
 <%--        </div>--%>
 <%--      </div>--%>
 <%--    </div>--%>
-  </section>
+</section>
 
-  <!-- end info section -->
+<!-- end info section -->
 
 
-  <!-- footer section -->
-  <section class="container-fluid footer_section ">
-    <p>
-      &copy; 2019 All Rights Reserved. Design by
-      <a href="https://html.design/">Free Html Templates</a>
-    </p>
-  </section>
-  <!-- footer section -->
+<!-- footer section -->
+<section class="container-fluid footer_section ">
+  <p>
+    &copy; 2019 All Rights Reserved. Design by
+    <a href="https://html.design/">Free Html Templates</a>
+  </p>
+</section>
+<!-- footer section -->
 
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
 
-  <script>
-    function openNav() {
-      document.getElementById("myNav").classList.toggle("menu_width");
-      document
-        .querySelector(".custom_menu-btn")
-        .classList.toggle("menu_btn-style");
-    }
-  </script>
+<script>
+  function openNav() {
+    document.getElementById("myNav").classList.toggle("menu_width");
+    document
+            .querySelector(".custom_menu-btn")
+            .classList.toggle("menu_btn-style");
+  }
+</script>
 </body>
 
 </html>

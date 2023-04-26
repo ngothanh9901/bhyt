@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Energym</title>
+    <title>Bảo hiểm xã hội</title>
 
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
@@ -79,15 +79,16 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <a class="navbar-brand" href="index.jsp">
-                    <img src="images/logo.png" alt="" />
-                    <span>
-              Bảo hiểm
-            </span>
+                    <img style="border-radius: 50%" src="images/bhxh.png" alt="" />
+                    <div style="margin-left: 30px">
+                        <div>Giao dịch điện tử</div>
+                        <div>Bảo hiểm xã hội</div>
+                    </div>
                 </a>
                 <div class="contact_nav" id="">
                     <ul class="navbar-nav ">
                         <li class="nav-item">
-                            <a class="nav-link" href="service.html">
+                            <a class="nav-link" href="">
                                 <img src="images/location.png" alt="" />
                                 <span>Vị trí</span>
                             </a>

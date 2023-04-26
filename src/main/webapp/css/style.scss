@@ -123,8 +123,6 @@ body {
 
 
 .header_section {
-    background-color: $btnWhite;
-
     .nav_container {
         margin: 0 auto;
     }
@@ -259,7 +257,7 @@ a:focus {
 
 .slider_section {
     height: calc(100% - 80px);
-    background-image: url(../images/slider-bg.jpg);
+    background-image: url(../images/bg_bhxh.svg);
     background-size: cover;
 
     .slider_container {
